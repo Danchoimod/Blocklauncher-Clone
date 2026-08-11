@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    >
+<TextView android:id="@+id/no_minecraft_text"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/no_minecraft_installed"
+    android:textSize="18sp"
+    />
+<Button android:id="@+id/no_minecraft_learn_more"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/no_minecraft_learn_more"
+    android:onClick="learnMoreClicked"
+    android:visibility="gone"/>
+</LinearLayout>
+
