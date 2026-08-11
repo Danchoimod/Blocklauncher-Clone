@@ -43,7 +43,7 @@ import java.util.List;
  * A mock {@link android.content.pm.PackageManager} class.  All methods are functional.
  * Override it to provide the operations that you need.
  */
-public class WrappedPackageManager extends PackageManager {
+public abstract class WrappedPackageManager extends PackageManager {
 
     protected PackageManager wrapped;
 
@@ -487,5 +487,55 @@ public class WrappedPackageManager extends PackageManager {
     @Override
     public void setApplicationCategoryHint(String packageName, int categoryHint) {
         wrapped.setApplicationCategoryHint(packageName, categoryHint);
+    }
+
+    @Override
+    public android.content.pm.ChangedPackages getChangedPackages(int sequenceNumber) {
+        return wrapped.getChangedPackages(sequenceNumber);
+    }
+
+    @Override
+    public boolean isInstantApp() {
+        return wrapped.isInstantApp();
+    }
+
+    @Override
+    public boolean isInstantApp(String packageName) {
+        return wrapped.isInstantApp(packageName);
+    }
+
+    @Override
+    public int getInstantAppCookieMaxBytes() {
+        return wrapped.getInstantAppCookieMaxBytes();
+    }
+
+    @Override
+    public byte[] getInstantAppCookie() {
+        return wrapped.getInstantAppCookie();
+    }
+
+    @Override
+    public void clearInstantAppCookie() {
+        wrapped.clearInstantAppCookie();
+    }
+
+    @Override
+    public void updateInstantAppCookie(byte[] cookie) {
+        wrapped.updateInstantAppCookie(cookie);
+    }
+
+    @Override
+    public List<android.content.pm.SharedLibraryInfo> getSharedLibraries(int flags) {
+        return wrapped.getSharedLibraries(flags);
+    }
+
+    @Override
+    public boolean isPermissionRevokedByPolicy(String permName, String pkgName) {
+        return wrapped.isPermissionRevokedByPolicy(permName, pkgName);
+    }
+
+    @Override
+    public int getPackageUid(String packageName, int flags) throws NameNotFoundException {
+        return wrapped.getPackageUid(packageName, flags);
     }
 }
